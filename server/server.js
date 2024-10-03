@@ -6,6 +6,8 @@ import cors from 'cors';
 import router from './routers/routes.js';
 import { v2 as cloudinary } from 'cloudinary';
 import client from './models/faunaClient.js'; // Importar el cliente de FaunaDB
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Inicializar Express
 const app = express();
@@ -25,6 +27,13 @@ const corsOptions = {
   origin: "http://localhost:5173",
   credentials: true
 };
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Middleware para servir archivos estáticos
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
