@@ -1,6 +1,6 @@
 import { FiHome, FiUserPlus, FiTable, FiLogOut } from "react-icons/fi";
 import { PiSecurityCameraFill } from "react-icons/pi";
-import style from './navbar.module.css'
+import style from './navBar.module.css'
 import { Link, useLocation } from "react-router-dom";
 
 const listaURLs = [
